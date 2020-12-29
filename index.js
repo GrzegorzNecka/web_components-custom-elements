@@ -1,9 +1,6 @@
-// Import stylesheets
-import "./style.css";
-
-// Write Javascript code!
-const appDiv = document.getElementById("app");
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+/**
+ * https://przeprogramowani.elms.pl/szkolenie.html?tid=2&lid=38
+ */
 
 class Greeting extends HTMLElement {
   static get observedAttributes() {
@@ -26,9 +23,8 @@ class Greeting extends HTMLElement {
 
 window.customElements.define("my-greeting", Greeting);
 
-//----------------------------------------------------------
 /**
- * https://przeprogramowani.elms.pl/szkolenie.html?tid=2&lid=38
+ * przekazywanie i odczytywanie  złożonego elemntu
  */
 
 class Advanced extends HTMLElement {
@@ -56,8 +52,29 @@ class Advanced extends HTMLElement {
 
 window.customElements.define("advnaced-ce", Advanced);
 
-
-//--- pobanie w konsoli 
+//--- pobanie w konsoli
 // const el = document.querySelector('advnaced-ce')
 // el.profile = { firstName: 'przemek', lastName: 'S'}
 
+/**
+ * eventy w custom elements
+ */
+
+class EventsTest extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    setTimeout(() => {
+      this.dispatchEvent(new CustomEvent("something-has-changed"));
+    }, 10000);
+  }
+}
+
+window.customElements.define("my-event", EventsTest);
+
+//--- pobanie w konsoli
+// const el = document.querySelector("my-event");
+// el.addEventListener("something-has-changed", () => {
+//   console.log("test");
+// });
