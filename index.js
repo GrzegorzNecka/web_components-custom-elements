@@ -11,6 +11,7 @@ class Greeting extends HTMLElement {
   }
   constructor() {
     super();
+    this.innerText = `Hello, ${this.getAttribute("name")}`;
   }
   connectedCallback() {
     console.log("dodano");
@@ -19,8 +20,7 @@ class Greeting extends HTMLElement {
     console.log("usunięto");
   }
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log("Custom element attributes changed.");
-    console.log(arguments);
+    this.innerText = `Hello, ${newValue}`;
   }
 }
 
