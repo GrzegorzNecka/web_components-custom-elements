@@ -20,7 +20,7 @@ class Greeting extends HTMLElement {
   }
   attributeChangedCallback(name, oldValue, newValue) {
     console.log("Custom element attributes changed.");
-    console.log(attributes);
+    console.log(arguments);
   }
 }
 
